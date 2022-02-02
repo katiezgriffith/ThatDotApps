@@ -1,9 +1,10 @@
 import React from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
                 
-function Login(props)
+function Login(props){
+let navigate = useNavigate()
 {
   const initialValues = {
     username:"",
@@ -14,9 +15,9 @@ function Login(props)
     .then((res) => {
       localStorage.setItem('username', res.data.username)
       localStorage.setItem('id', res.data.id)
-      localStorage.setItem('firstName', res.data.firstName)
-      props.logfunction()
-      Navigate('./secret')
+      localStorage.setItem('password', res.data.password)
+      props.logFunction()
+      navigate('/secret')
     })
     .catch((err) => {
       console.log(err.response.data)
@@ -41,7 +42,7 @@ function Login(props)
 
 return <div>
     <h2>Login Page</h2>
-    <form onSubmit={formik.handleSubmit}>
+    <form id='form' onSubmit={formik.handleSubmit}>
       <input
         type="text"
         name='username'
@@ -59,5 +60,5 @@ return <div>
         <button type="submit" disabled={!formik.isValid} >Submit</button>
     </form>
     </div>
-    }
+    }}
     export default Login

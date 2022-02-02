@@ -1,0 +1,8 @@
+h2{
+    background-color: aquamarine;
+    border: 5px;
+    text-emphasis-color: black;
+    -webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+}

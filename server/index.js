@@ -1,6 +1,6 @@
 const express = require('express'); 
 const cors = require('cors');
-const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 const {sequelize} = require ('./sequelize')
@@ -64,6 +64,6 @@ app.post('/login', async (req, res) => {
     
 
 
-// sequelize.authenticate()                    
+ sequelize.authenticate()                    
 app.listen(PORT, () => console.log( `Server running on
 Port ${PORT}`));

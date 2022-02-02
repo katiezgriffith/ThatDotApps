@@ -1,0 +1,13 @@
+body{
+    background-color: teal;
+}
+
+.App h1{
+    text-align: center;
+    border: 5px solid;
+    -webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+   justify-content: center;
+   align-content: center;
+}
