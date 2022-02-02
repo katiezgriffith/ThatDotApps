@@ -8,7 +8,7 @@ function Login() {
     password:""
 }
   const onSubmit = (values) => { 
-    axios.post( './Login', values)
+    axios.post('http://localhost:4000/Login', values)
     .then((res) => {
       console.log(res.data)
     })

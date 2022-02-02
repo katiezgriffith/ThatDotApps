@@ -40,9 +40,30 @@ app.post('/register', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
+    const {username, password} = req.body
+    const validUser = await sequelize.query(`
+    SELECT * FROM users WHERE username = '${username}
+    `)
+    if (validUser[1].rowCount === 1) {
+        if (bcrypt.compareSync(password, validUser[0][0].password) ){
+            let object = {
+                id: validUser[0][0].id,
+                firstName: validUser[0][0].firstName,
+                lastName: validUser[0][0].lastName,
+                username
+            }
+            res.status(200).send(object)
+            } else {
+            res.status(500).send('Password is Incorrect')
+                }
+            } else {
+            res.status(401).send ('Username is Incorrect')
+            }
 
-})
+        })
+    
 
-sequelize.authenticate()                    
+
+// sequelize.authenticate()                    
 app.listen(PORT, () => console.log( `Server running on
 Port ${PORT}`));
