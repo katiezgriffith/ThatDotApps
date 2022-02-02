@@ -2,6 +2,7 @@ import React from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import "./login.css"
                 
 function Login(props){
 let navigate = useNavigate()
@@ -15,9 +16,9 @@ let navigate = useNavigate()
     .then((res) => {
       localStorage.setItem('username', res.data.username)
       localStorage.setItem('id', res.data.id)
-      localStorage.setItem('password', res.data.password)
-      props.logFunction()
-      navigate('/secret')
+      //localStorage.setItem('password', res.data.password)
+      // props.logFunction()
+      navigate('/dashboard')
     })
     .catch((err) => {
       console.log(err.response.data)
@@ -41,7 +42,10 @@ let navigate = useNavigate()
 
 
 return <div>
-    <h2>Login Page</h2>
+    <h2>Welcome</h2>
+      <h2>Login Here</h2>
+    <br></br>
+    
     <form id='form' onSubmit={formik.handleSubmit}>
       <input
         type="text"
@@ -50,15 +54,23 @@ return <div>
         value={formik.values.username}
         placeholder='Username'
         />
+        <br></br>
          <input
         type="password"
         name='password'
         onChange={formik.handleChange}
-        value={formik.values.username}
+        value={formik.values.password}
         placeholder='Password'
         />
+        <br></br>
         <button type="submit" disabled={!formik.isValid} >Submit</button>
     </form>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <h3>Need an account? Register here</h3>
+      <button id='reg' >Register</button>
     </div>
     }}
     export default Login

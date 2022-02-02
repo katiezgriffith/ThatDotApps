@@ -44,7 +44,7 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
     const {username, password} = req.body
     const validUser = await sequelize.query(`
-    SELECT * FROM users WHERE username = '${username}
+    SELECT * FROM users WHERE username = '${username}'
     `)
     if (validUser[1].rowCount === 1) {
         if (bcrypt.compareSync(password, validUser[0][0].password) ){
