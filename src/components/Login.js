@@ -1,5 +1,6 @@
 import React from 'react'
 import {useFormik} from 'formik'
+import axios from 'axios'
                 
 function Login() {
   const initialValues = {
@@ -7,6 +8,11 @@ function Login() {
     password:""
 }
   const onSubmit = (values) => { 
+    axios.post('http://localhost:3000/Register', values)
+    .then ((res) => {
+      console.log(res.data)
+    })
+
     
   }
   const validate = (values) => {
