@@ -8,16 +8,22 @@ function Login() {
     password:""
 }
   const onSubmit = (values) => { 
-    axios.post('http://localhost:3000/Register', values)
-    .then ((res) => {
+    axios.post( './Login', values)
+    .then((res) => {
       console.log(res.data)
     })
-
-    
+    .catch((err) => {
+      console.log(err.response.data)
+    })
   }
   const validate = (values) => {
-    console.log('validation')
-  }
+    const errors = {}
+    if(!values.userName) {
+      errors.userName = "Username Required"
+  } else if(values.password.length < 8){ 
+      errors.password = "Password must be 8 characters"
+}}
+
   const formik = useFormik({
                  
     initialValues,

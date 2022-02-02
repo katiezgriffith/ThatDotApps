@@ -1,5 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik'
+import axios from 'axios';
 
 function Register() {
   const initialValues = {
@@ -11,7 +12,14 @@ function Register() {
       confirmPassword: ""
   }
     const onSubmit = (values) => { 
-      console.log(values)
+      axios.post('/register', values)
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem('userName', res.data[0][0].username)
+        localStorage.setItem('id', res.data[0][0].id)
+        localStorage.setItem('firstName', res.data[0][0].firstName)
+    })
+    .catch((err) => console.log(err.response.data))
     }
     const validate = (values) => {
       const errors = {}
