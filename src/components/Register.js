@@ -12,7 +12,7 @@ function Register() {
       confirmPassword: ""
   }
     const onSubmit = (values) => { 
-      axios.post('/register', values)
+      axios.post('http://localhost:4000/register', values)
       .then((res) => {
         console.log(res.data)
         localStorage.setItem('userName', res.data[0][0].username)
@@ -40,9 +40,9 @@ function Register() {
       if(!values.confirmPassword){
         errors.confirmPassword = "Please Confirm Password"
       }
-      // if(!values.password !== values.confirmPassword){
-      //   errors.confirmPassword = "Password must match"
-      // }
+      if(values.password !== values.confirmPassword){
+        errors.confirmPassword = "Password must match"
+      }
       if(!values.email){
         errors.email = "Please enter an email address"
       }
