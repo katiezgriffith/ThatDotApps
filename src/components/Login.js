@@ -7,7 +7,7 @@ function Login() {
     password:""
 }
   const onSubmit = (values) => { 
-    console.log(values)
+    
   }
   const validate = (values) => {
     console.log('validation')

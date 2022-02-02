@@ -4,7 +4,8 @@ import {useFormik} from 'formik'
 function Register() {
   const initialValues = {
       username: "",
-      name: "",
+      firstName: "",
+      lastName:"",
       email: "",
       password: "",
       confirmPassword: ""
@@ -22,15 +23,18 @@ function Register() {
       } else if (values.password.length < 8) {
         errors.password = "Password must be longer than 8 characters."
       } 
-      if(!values.name){
-        errors.name = "Please enter your name."
+      if(!values.firstName){
+        errors.name = "Please enter your first name."
       }  
+      if(!values.lastName){
+        errors.lastName= "Please enter your last name"
+      }
       if(!values.confirmPassword){
-        errors.name = "Please Confirm Password"
+        errors.confirmPassword = "Please Confirm Password"
       }
-      if(!values.password !== values.confirmPassword){
-        errors.confirmPassword = "Password must match"
-      }
+      // if(!values.password !== values.confirmPassword){
+      //   errors.confirmPassword = "Password must match"
+      // }
       if(!values.email){
         errors.email = "Please enter an email address"
       }
@@ -48,10 +52,17 @@ function Register() {
     <form onSubmit={formik.handleSubmit}>
       <input
         type="text"
-        name='name'
+        name='firstName'
         onChange={formik.handleChange}
         value={formik.values.name}
-        placeholder='Name'
+        placeholder='First Name'
+        />
+        <input
+        type="text"
+        name='lastName'
+        onChange={formik.handleChange}
+        value={formik.values.name}
+        placeholder='Last Name'
         />
           <input
         type="text"
@@ -85,10 +96,14 @@ function Register() {
     </form>
     <div>
       {formik.errors.username ? <div>{formik.errors.username}</div> : null}
-      
+      {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+      {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
+      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+      {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+      {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
+
 
     </div>
-    
     </div>;
 }
 
