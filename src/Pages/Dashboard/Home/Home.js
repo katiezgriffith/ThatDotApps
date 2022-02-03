@@ -97,7 +97,7 @@ class Home extends React.Component{
                   Period Tracker
                 </Typography>
                 <IconButton edge="end" color="inherit" target="_blank"
-                    href="https://github.com/XifeiNi/period-tracker">
+                    href="https://youtu.be/Q5faxRj1WFA">
                   <MoreIcon />
                 </IconButton>
               </Toolbar>
