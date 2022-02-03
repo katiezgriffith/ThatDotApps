@@ -3,7 +3,7 @@
 .react-calendar { 
     position:absolute;
     display: flex;
-    
+    cursor: pointer;
     border: 5px solid #30d1d6;
     padding: 10px;
     width: auto;

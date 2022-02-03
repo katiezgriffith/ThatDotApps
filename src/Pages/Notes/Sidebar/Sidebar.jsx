@@ -8,15 +8,15 @@ const Sidebar = ({
     const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
   
     return (
-      <div className="app-sidebar">
-        <div className="app-sidebar-header">
+      <div className="journal-sidebar">
+        <div className="journal-sidebar-header">
           <h1>Notes</h1>
           <button id="button" onClick={onAddNote}>Add</button>
         </div>
-        <div className="app-sidebar-notes">
+        <div className="journal-sidebar-notes">
           {sortedNotes.map(({ id, title, body, lastModified }, i) => (
             <div
-              className={`app-sidebar-note ${id === activeNote && "active"}`}
+              className={`journal-sidebar-note ${id === activeNote && "active"}`}
               onClick={() => setActiveNote(id)}
             >
               <div className="sidebar-note-title">
