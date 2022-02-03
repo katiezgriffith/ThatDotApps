@@ -6,11 +6,12 @@ import Navbar from './components/Navbar';
 import './App.css';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import Dashboard from './Pages/Notes/Dashboard'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import Journal from './Pages/Notes/Journal';
 
 import { useState, useEffect } from 'react';
 
-import Journal from './Pages/Notes/Journal';
+
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />}/>
         <Route path='/notes' element={<Journal />}/>
+        
         
  </Routes>
  

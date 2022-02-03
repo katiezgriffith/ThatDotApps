@@ -27,6 +27,9 @@ return (
         <NavLink to='/Notes' activeStyle>
             Journal
         </NavLink>
+		<NavLink to='/Dashboard' activeStyle>
+            Dashboard
+        </NavLink>
 		{/* Second Nav */}
 		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 		</NavMenu>
