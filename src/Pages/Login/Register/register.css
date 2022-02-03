@@ -1,5 +1,6 @@
 div form{
     background-image: url("/public/favicon.ico");
+    
     background-size:cover;
     justify-content: center;
     text-align: center;

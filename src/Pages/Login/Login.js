@@ -69,8 +69,10 @@ return <div>
     <br></br>
     <br></br>
     <br></br>
-    <h3>Need an account? Register here</h3>
-      <button id='reg' >Register</button>
+    <h3>New? Register here</h3>
+    <a href="http://localhost:3000/register">
+   <input type="button" value="Continue" />
+</a>
     </div>
     }}
     export default Login

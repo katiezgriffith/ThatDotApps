@@ -15,18 +15,18 @@ return (
 		<Bars />
 
 		<NavMenu>
-		<NavLink to='/dashboard' activeStyle>
+		{/* <NavLink to='/dashboard' activeStyle>
             Track Your Period
-        </NavLink>
+        </NavLink> */}
 		<NavLink to='/register' activeStyle>
 			Register
 		</NavLink>
 		<NavLink to='/login' activeStyle>
 			Login
 		</NavLink>
-        {/* <NavLink to='/Home' activeStyle>
-            Home
-        </NavLink> */}
+        <NavLink to='/Notes' activeStyle>
+            Journal
+        </NavLink>
 		{/* Second Nav */}
 		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 		</NavMenu>

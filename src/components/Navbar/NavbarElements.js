@@ -14,7 +14,7 @@ z-index: 12;
 `;
 
 export const NavLink = styled(Link)`
-color: ##1EA1A1;
+color: #89D5D2;
 display: flex;
 align-items: center;
 text-decoration: none;

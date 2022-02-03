@@ -4,11 +4,13 @@ import Navbar from './components/Navbar';
 
 
 import './App.css';
-import Login from './Pages/Login';
-import Register from './Pages/Register';
-import Dashboard from './Pages/Dashboard'
+import Login from './Pages/Login/Login';
+import Register from './Pages/Login/Register/Register';
+import Dashboard from './Pages/Dashboard/Dashboard'
 
 import { useState, useEffect } from 'react';
+
+import Journal from './Pages/Notes/Journal';
 
 
 
@@ -34,6 +36,7 @@ function App() {
         
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />}/>
+        <Route path='/notes' element={<Journal />}/>
         
  </Routes>
  
