@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import './App.css';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import Dashboard from './Pages/Dashboard/Dashboard'
+import Dashboard from './Pages/Notes/Dashboard'
 
 import { useState, useEffect } from 'react';
 

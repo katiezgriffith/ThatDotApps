@@ -1,49 +1,72 @@
+// import third party library
 import React from 'react';
-// import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './Dashboard.css'
+import Chip from '@material-ui/core/Chip';
+
+// import user defined js file
+import './Dashboard.css';
+import Home from './Home/Home';
+import Add from './Add/Add';
+import TestUserData from './Add/DataSet/TestUserData';
+import getStartDate from './CoreAlgorithm';
+
+class Dashboard extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleChangeState = this.handleChangeState.bind(this);
+    /*
+    currentPage: Home, Add,
+    currentDate: new Date()
+    userData: {
+      "Date()":{
+        "Blood": 0,
+        "Pain": 0,
+        ...
+      }
+      menstrualDuration: 30,
+      periodDuration: 5,
+      prediction: {
+        "Date()": 0, 1
+      }
+    }
+    */
+    this.state = {"currentPage": "Home",
+                  "currentDate": new Date(),
+                  "userData": JSON.parse(JSON.stringify(TestUserData)),
+                  "totalDuration": 30,
+                  "periodDuration": 5,
+                  "startDate": null
+                 };
+    const startDate = getStartDate(this.state);
+    this.state["startDate"] = startDate;
+  }
 
 
+  handleChangeState(state) {
+    state["startDate"] = getStartDate(state);
+    this.setState(state);
+  }
 
 
-function Dashboard() {
-  const [date, setDate] = useState(new Date());
-  
-  
-
-  return (
-    <div className='app'>
-      <h1 className='text-center'> Let's Track Your Cycle</h1>
-      <div className='calendar-container'>
-        <Calendar
-          onChange={setDate}
-          value={date}
-          selectRange={true}
+  render() {
+    let state = this.state;
+    if (state["currentPage"] === "Home") {
+      return (
+        <Home handleChangeState={this.handleChangeState} state={state}/>
+      )
+    } else if (state["currentPage"] === "Add") {
+      return (
+        <Add handleChangeState={this.handleChangeState}  state={state}/>
+      )
+    } else {
+      console.log(state);
+      return (
+        <Chip
+          label="Error! See console for detail"
+          color="secondary"
         />
-      </div>
-      {date.length > 0 ? (
-        <p className='text-center'>
-          <span className='bold'>Start:</span>{' '}
-          {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className='bold'>End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className='text-center'>
-          <span className='bold'>Default selected date:</span>{' '}
-          {date.toDateString()}
-        </p>
-      )}
-    </div>
-  );
+      )
+    }
+  }
 }
-
-
-
-
-  
-
 
 export default Dashboard;
